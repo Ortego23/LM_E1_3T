@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta empresas energeticas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Consulta de Datos</h1>
+    </header>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="search-cif" placeholder="Buscar por CIF">
+            <input type="text" id="search-nombre" placeholder="Buscar por Nombre">
+            <input type="text" id="search-comercializadora" placeholder="Buscar por Comercializadora">
+            <input type="text" id="search-estado" placeholder="Buscar por Estado">
+            <button onclick="searchData()">Buscar</button>
+        </div>
+        <div id="data-container"></div>
+    </div>
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['GANA ENERGIA', 'EVOLVE', 'ALUZ'],
+            datasets: [{
+              label: 'Número de contratos',
+              data: [12, 6, 1],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+    <footer>
+        <p>&copy; CampusFP</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
